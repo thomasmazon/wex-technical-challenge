@@ -1,0 +1,72 @@
+# Aplicação Wex Challenge
+
+Esta é uma aplicação Spring Boot para gerenciar transações de compra com conversão de moeda usando a API do Tesouro dos EUA. 
+Usa H2 como banco de dados embarcado, Hazelcast para cache, e WebFlux para chamadas HTTP reativas.
+
+## Pré-requisitos
+
+- Java 17
+- Maven 3.8+
+- Docker (para execuções baseadas em Docker)
+- IDE como IntelliJ IDEA ou Eclipse (para execuções locais via IDE)
+
+## Configuração
+
+Clone o repositório:
+```
+git clone https://github.com/thomasmazon/wex-technical-challenge.git
+cd wex-technical-challenge
+```
+
+## Executando Localmente via IDE
+
+1. Abra o projeto na sua IDE (ex.: IntelliJ IDEA).
+2. Certifique-se de que o projeto é importado como um projeto Maven e as dependências são resolvidas.
+3. Localize a classe `PurchaseAppApplication.java` em `src/br/com/thomas/wex/challenge/api`.
+4. Clique com o botão direito e selecione "Run 'PurchaseAppApplication.main()'".
+
+5. A aplicação iniciará em `http://localhost:8080`.
+6. Teste os endpoints:
+   - POST `/purchases` com corpo JSON: `{"description": "Test", "date": "2023-12-31", "amount": 100.00}`
+   - GET `/purchases/{id}?country=Canada-Dollar`
+
+## Executando Localmente via Linha de Comando
+
+1. Construa o projeto:
+   ```
+   mvn clean package
+   ```
+   Isso gera `target/wex-technical-challenge-0.0.1-SNAPSHOT.jar`.
+
+2. Execute o JAR:
+   ```
+   java -jar target/wex-technical-challenge-0.0.1-SNAPSHOT.jar
+   ```
+   Ou, execute sem construir o JAR:
+   ```
+   mvn spring-boot:run
+   ```
+
+3. A aplicação iniciará em `http://localhost:8080`.
+4. Teste os endpoints como acima.
+
+Para executar testes:
+```
+mvn test
+```
+Isso executa testes unitários e verifica 80% de cobertura de código via JaCoCo.
+
+## Executando via Docker
+
+1. Certifique-se de que Docker e Docker Compose estão instalados.
+2. Construa e execute:
+   ```
+   docker-compose up --build
+   ```
+   Isso constrói a imagem Docker e inicia o contêiner.
+
+3. A aplicação estará disponível em `http://localhost:8080`.
+4. Para parar:
+   ```
+   docker-compose down
+   ```
