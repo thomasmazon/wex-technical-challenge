@@ -1,0 +1,54 @@
+debug: false
+
+################## [SERVER] #################
+server:
+  port: ${SERVER_PORT:8080}
+  compression:
+    enabled: true
+  servlet:
+    context-path: ${SERVER_CONTEXT}
+
+################## [SPRING] #################
+spring:
+
+  devtools:
+    restart:
+      enabled: false
+
+  mail:
+    host: ${MAIL_HOST:email-smtp.eu-central-1.amazonaws.com}
+    port: ${MAIL_PORT:465}
+    protocol: ${MAIL_PROTOCOL:smtps}
+    username: ${MAIL_USER:AKIAVNABR5MQOPQQRO74}
+    password: ${MAIL_PASSWORD:BCvB+BJLHEjBIyd8LyaIBjQD0jtxLdhDTStDzdXZcKVaUCUUl}
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: ${MAIL_TLS:true}
+      starttls.required: true
+      debug: true
+
+
+################## [LOGGING] #################
+logging:
+  level:
+    root: ERROR
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
+    io.swagger.models.parameters.AbstractSerializableParameter: WARN
+    io.swagger.models.parameters: ERROR
+    org.springframework.core.env.PropertySourcesPropertyResolver: DEBUG
+    org.springframework.boot.context.config.ConfigFileApplicationListener: DEBUG
+    javax.management.remote.rmi: WARN
+    org.apache.catalina.loader: WARN
+    sun: ERROR
+    org.apache.http.wire: WARN
+    com.fasterxml.jackson.databind: WARN
+    com.jogoblogal.gamificationplataform: WARN
+
+    org:
+      hibernate:
+        SQL: WARN
+      springframework:
+        security: DEBUG
+        
+################## [SWAGGER] #################
+

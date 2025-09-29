@@ -1,0 +1,138 @@
+debug: false
+
+################## [SERVER] #################
+server:
+  port: ${SERVER_PORT}
+  compression:
+    enabled: true
+  servlet:
+    context-path: ${SERVER_CONTEXT}
+
+################## [app] #################
+
+
+app:
+  external-api:
+    treasury-fiscaldata:
+      base-url: https://api.fiscaldata.treasury.gov
+
+
+
+################## [SPRING] #################
+spring:
+  main:
+    banner-mode: console
+    log-startup-info: true
+
+  batch:
+    job:
+      enabled: true
+    
+  devtools:
+    restart:
+      enabled: false
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
+      max-request-size: -1
+
+  datasource:
+    url: jdbc:${DATABASE_VENDOR}://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: ${DATABASE_VENDOR_DRIVER}
+    
+  flyway:
+    out-of-order: false
+    enabled: true
+    baseline-on-migrate: true  
+    placeholderReplacement: false     
+    
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        format_sql: true
+        use_sql_comments: false
+        connection.charSet: UTF-8
+        types.print.banner: false
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _aud
+            default_schema: audit
+            store_data_at_delete: true
+            revision_on_collection_change: false
+
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
+    parser:
+      ALLOW_UNQUOTED_FIELD_NAMES: true
+    serialization:
+      INDENT_OUTPUT: true
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      unwrap-single-value-arrays: true
+      FAIL_ON_IGNORED_PROPERTIES: false
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+      ACCEPT_EMPTY_STRING_AS_NULL_OBJECT: true
+      UNWRAP_SINGLE_VALUE_ARRAYS: true
+      READ_ENUMS_USING_TO_STRING: true
+    default-property-inclusion: NON_EMPTY
+    date-format: yyyy-MM-dd HH:mm:ss
+
+################## [LOGGING] #################
+logging:
+  level:
+    root: ERROR
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
+    org.springframework.boot.context.config.ConfigFileApplicationListener: DEBUG
+    org.flywaydb.core.internal.scanner.classpath.ClassPathScanner: DEBUG
+    org.springframework.security.web.util.matcher.AntPathRequestMatcher: ERROR
+    org.apache.catalina.loader: WARN
+    io.swagger.models.parameters.AbstractSerializableParameter: WARN
+    io.swagger.models.parameters: ERROR
+    io.swagger.v3.core.converter.ModelConverterContextImpl: ERROR
+    io.netty.handler.ssl.SslHandler: OFF
+    jdk.event.security: OFF
+    reactor.netty: OFF
+    software.amazon: ERROR
+    javax.management.remote.rmi: WARN
+    org.springframework.core.env.PropertySourcesPropertyResolver: ERROR
+    com.hazelcast.internal.cluster.impl.ClusterHeartbeatManager: DEBUG
+    com.hazelcast.internal.cluster.ClusterService: DEBUG
+    org.springframework.web.socket.messaging.WebSocketAnnotationMethodMessageHandler: OFF
+    
+    br.com.thomas.wex: WARN
+    
+    io:
+      netty:
+        util: ERROR
+    sun: ERROR
+    com:
+      hazelcast: WARN
+      zaxxer:
+        hikari: OFF
+      fasterxml:
+        jackson:
+          databind: WARN
+    org:
+      postgresql: WARN
+      apache: ERROR
+      hibernate: ERROR
+      springframework: ERROR
+      flywaydb: ERROR
+        
+
+################## [SWAGGER] #################
+application-description: Wex Chanllenge API
+application-version: '@project.version@'
+
