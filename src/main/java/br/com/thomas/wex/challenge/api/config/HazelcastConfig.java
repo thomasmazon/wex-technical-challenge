@@ -22,7 +22,7 @@ import br.com.thomas.wex.challenge.api.service.dto.ExchangeRateDto;
 public class HazelcastConfig {
 	
 	@Bean
-	public Config hazelcastConfig() {
+	public Config localHazelcastConfig() {
 		Config config = new Config();
 		config.setInstanceName("wex-hazelcast-instance");
 		
@@ -44,7 +44,7 @@ public class HazelcastConfig {
 	@Bean
 	public HazelcastInstance getHazelcastInstance() {
 		
-		HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance(hazelcastConfig());
+		HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance(localHazelcastConfig());
 		
 		return hazelcastInstance;
 	}

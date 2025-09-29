@@ -30,11 +30,11 @@ spring:
     url: jdbc:h2:mem:wex;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: ${DATABASE_USER:h2_user}
     password: ${DATABASE_PASSWORD:h2_pass}
-    driver-class-name: ${DATABASE_VENDOR_DRIVER:=org.h2.Driver}
+    driver-class-name: ${DATABASE_VENDOR_DRIVER:org.h2.Driver}
     
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     generate-ddl: true
     show-sql: true
     properties:

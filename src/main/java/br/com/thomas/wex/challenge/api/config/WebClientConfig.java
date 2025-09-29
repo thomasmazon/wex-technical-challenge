@@ -12,7 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 	
-	@Value("${app.app.external-api.treasury-fiscaldata.base-url}")
+	@Value("${app.external-api.treasury-fiscaldata.base-url}")
 	private String treasuryRatesExchangeBaseUrl;
 	
 	@Bean(name = "webClientTreasuryRatesExchange")
