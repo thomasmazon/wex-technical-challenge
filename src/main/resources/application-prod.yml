@@ -42,7 +42,7 @@ logging:
     sun: ERROR
     org.apache.http.wire: WARN
     com.fasterxml.jackson.databind: WARN
-    com.jogoblogal.gamificationplataform: WARN
+    br.com.thomas.wex: WARN
 
     org:
       hibernate:

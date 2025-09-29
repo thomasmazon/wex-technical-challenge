@@ -26,12 +26,6 @@ spring:
     restart:
       enabled: true
 
-#  datasource:
-#    url: jdbc:${DATABASE_VENDOR:postgresql}://${DATABASE_HOST:127.0.0.1}:${DATABASE_PORT:5432}/${DATABASE_NAME:notification}
-#    username: ${DATABASE_USER:postgres}
-#    password: ${DATABASE_PASSWORD:postgres}
-#    driver-class-name: ${DATABASE_VENDOR_DRIVER:org.postgresql.Driver}
-   
   datasource:
     url: jdbc:h2:mem:wex;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: ${DATABASE_USER:h2_user}
@@ -57,7 +51,7 @@ spring:
 logging:
   level:
     root: DEBUG
-    br.com.bentiviu: ERROR
+    br.com.thomas.wex: ERROR
 #    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
 #    org.springframework.web.reactive.result.method.annotation.RequestMappingHandlerMapping: TRACE
 #    io.swagger.models.parameters.AbstractSerializableParameter: WARN
