@@ -15,18 +15,6 @@ spring:
     restart:
       enabled: false
 
-  mail:
-    host: ${MAIL_HOST:email-smtp.eu-central-1.amazonaws.com}
-    port: ${MAIL_PORT:465}
-    protocol: ${MAIL_PROTOCOL:smtps}
-    username: ${MAIL_USER:AKIAVNABR5MQOPQQRO74}
-    password: ${MAIL_PASSWORD:BCvB+BJLHEjBIyd8LyaIBjQD0jtxLdhDTStDzdXZcKVaUCUUl}
-    properties.mail.smtp:
-      auth: true
-      starttls.enable: ${MAIL_TLS:true}
-      starttls.required: true
-      debug: true
-
 
 ################## [LOGGING] #################
 logging:

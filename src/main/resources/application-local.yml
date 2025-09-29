@@ -52,27 +52,5 @@ logging:
   level:
     root: DEBUG
     br.com.thomas.wex: ERROR
-#    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
-#    org.springframework.web.reactive.result.method.annotation.RequestMappingHandlerMapping: TRACE
-#    io.swagger.models.parameters.AbstractSerializableParameter: WARN
-#    io.swagger.models.parameters: ERROR
-#    org.springframework.boot.context.config.ConfigFileApplicationListener: ERROR
-#    org.hibernate.SQL: WARN
-#    org.apache.http.wire: WARN
-#    org.springframework.orm.jpa.JpaTransactionManager: WARN
-#    org.postgresql.jdbc.PgConnection: WARN
-#    javax.xml.bind: OFF
-#
-#    com:
-#      hazelcast: WARN
-#      zaxxer:
-#        hikari: OFF
-#      fasterxml:
-#        jackson:
-#          databind: WARN
-#    org:
-#      postgresql: WARN
-#      apache: ERROR
-#      hibernate: ERROR
-#      springframework: ERROR
+
         
